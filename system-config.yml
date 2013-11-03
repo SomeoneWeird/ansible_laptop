@@ -1,0 +1,73 @@
+---
+
+system_packages:
+  - aptitude
+  - build-essential
+  - git
+  - gcc
+  - g++
+  - make
+  - automake
+  - nano
+  - vim
+  - screen
+  - curl
+  - unzip
+  - nmap
+  - zenmap
+  - wireshark
+  - ffmpeg
+  - firefox
+  - gparted
+  - testdisk
+  - htop
+  - p7zip-full
+  - python
+  - python-dev
+  - python-apt
+  - python-pycurl
+  - rar
+  - ubuntu-restricted-extras
+  - libavformat-extra-53
+  - libavcodec-extra-53
+  - gstreamer0.10-plugins-ugly 
+  - gstreamer0.10-ffmpeg 
+  - libxine1-ffmpeg 
+  - vlc
+  - browser-plugin-vlc
+  - indicator-multiload
+  - indicator-cpufreq
+  - libdvdread4
+
+system_repos: 
+  - deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+  - deb http://repo.steampowered.com/steam/ precise steam
+  - deb http://downloads.hipchat.com/linux/apt stable main
+  - deb http://dl.google.com/linux/chrome/deb/ stable main
+  - deb http://ppa.launchpad.net/calebdelisle/cjdns/ubuntu saucy main
+  - deb http://repository.spotify.com stable non-free
+  - deb http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu saucy main
+  - deb http://ppa.launchpad.net/chris-lea/redis-server/ubuntu saucy main 
+  - deb http://download.virtualbox.org/virtualbox/debian raring contrib
+
+system_repos_keys:
+  - 7F0CEB10
+  - B05498B7
+  - 729B5780
+  - 7FAC5991
+  - 4636C5FE
+  - 94558F59
+  - F9CB8DB0
+  - C7917B12
+  - 98AB5139
+
+system_repo_packages:
+  - mongodb-10gen
+  - steam-launcher
+  - hipchat
+  - google-chrome-beta
+  - cjdns
+  - spotify-client
+  - wine1.6
+  - redis
+  - virtualbox-4.3

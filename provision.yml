@@ -1,0 +1,44 @@
+---
+- hosts: localhost
+  vars_files:
+    - system-config.yml
+
+  gather_facts: false
+  sudo: true
+
+  tasks:
+
+  - name: Update APT
+    apt: update_cache=yes
+
+  - name: Upgrade system
+    apt: upgrade=dist
+
+  - name: Install system packages
+    apt: pkg=$item state=present
+    with_items: ${system_packages}
+
+  - name: Add APT repos
+    apt_repository: repo="$item"
+    with_items: ${system_repos}
+
+  - name: Add APT repo keys.
+    apt_key: id=$item state=present
+    with_items: ${system_repos_keys}
+
+  - name: Update APT
+    apt: update_cache=yes
+
+  - name: Install APT repo packages.
+    apt: pkg=$item state=present
+    with_items: ${system_repo_packages}
+
+  - name: Enable CSS (DVD stuff)
+    shell: /usr/share/doc/libdvdread4/install-css.sh
+
+  - name: Disable overlay scrollbars
+    shell: gsettings set com.canonical.desktop.interface scrollbar-mode normal
+
+  - name: Disable stupid unity stuff
+    shell: gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
+
